@@ -78,12 +78,42 @@
         <input id="password" type="password" name="password"  placeholder="请输入密码">
     </div>
     <span class="msg" id="msg" style="color: red" ></span>
-    <button href="javascript:login();">登录</button><br>
+    <button href="javascript:login();"onclick="login()">登录</button><br>
      <div style="color: white;padding-top: 20px;"><a href="register.jsp" style="color: white">注册</a><br></div>
 </div>
 
 </form>
 </body>
 
+<script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+
+    function login() {
+        console.log("登录")
+        var uname = $("#username").val();
+        var upwd = $("#password").val();
+
+        if (isEmpty(uname)){
+            $("#msg").html("用户姓名不可为空");
+            return;
+        }
+        if (isEmpty(upwd)){
+            $("#msg").html("用户密码不可为空");
+            return;
+        }
+
+        $("#LoginForm").submit();
+    }
+
+    //专用方法：判断为空
+    function isEmpty(str) {
+        if (str == null || str.trim() == ""){
+            return true;
+        }
+        return false;
+
+    }
+
+</script>
 
 </html>
