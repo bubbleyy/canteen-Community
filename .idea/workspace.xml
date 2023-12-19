@@ -10,10 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6944cc9c-deb7-4a59-9cb8-556d97dc7be2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/web/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/canteen-Community.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/canteen-Community.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/login.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +170,7 @@
       <workItem from="1702533243499" duration="4271000" />
       <workItem from="1702611921205" duration="3171000" />
       <workItem from="1702822799430" duration="160000" />
-      <workItem from="1702957707843" duration="1945000" />
+      <workItem from="1702957707843" duration="2281000" />
     </task>
     <servers />
   </component>
