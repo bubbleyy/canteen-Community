@@ -10,10 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6944cc9c-deb7-4a59-9cb8-556d97dc7be2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/canteen-Community.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/canteen-Community.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/canteen_Community_war_exploded/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/canteen_Community_war_exploded/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.80" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.80" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/canteen-Community_war_exploded/login.html" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/canteen-Community_war_exploded/login.jsp" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="canteen-Community:war exploded">
@@ -171,7 +171,9 @@
       <option name="presentableId" value="Default" />
       <updated>1702533242391</updated>
       <workItem from="1702533243499" duration="4271000" />
-      <workItem from="1702611921205" duration="2577000" />
+      <workItem from="1702611921205" duration="3171000" />
+      <workItem from="1702822799430" duration="160000" />
+      <workItem from="1702957707843" duration="1945000" />
     </task>
     <servers />
   </component>
