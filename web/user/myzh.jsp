@@ -21,7 +21,13 @@
 <body>
 
 <a id="hiddenprint1" class="btn btn-primary" style="display: flex;align-items: center;background-color: white;color: #952424;height: 40px" href="${pageContext.request.contextPath}/IndexServlet">返回主页</a>
-<img src="${pageContext.request.contextPath}/${loginuser.faceimg}" >
+<div style="background-color: #f1f1f1; text-align: center; padding: 40px">
+    <img
+            src="${pageContext.request.contextPath}/${loginuser.faceimg}"
+            width="80px"
+            height="80px"
+    />
+</div>
 <div>用户名：${loginuser.username}</div>
 <div>密码：${password}</div>
 <div>状态：
