@@ -55,7 +55,7 @@
               个人中心</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                <a class="dropdown-item" href="UserMyzhServlet">我的账户</a>
+                <a class="dropdown-item" href="UserMyAccountServlet">我的账户</a>
                 <a class="dropdown-item" href="#">我发布的</a>
                 <a class="dropdown-item" href="#">提示信息</a>
             </div>
