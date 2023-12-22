@@ -28,20 +28,4 @@ public interface UserListDao {
 
     List<inform> findggsearch(String name);
 
-
-//    void upuser(User user);
-//
-//    List<User> findtjuser();
-//
-//    List<Order> findorderstj(String username);
-//
-//    User findszuser(String id);
-//
-//    void upuser2(User user);
-//
-//    User findmyphone(String username);
-//
-//    Order findusername(String ordernumber);
-//
-//    void adduser(User user);
 }
