@@ -1,14 +1,13 @@
-package web;
+package web.admin;
 
-
-import dao.UserListDao;
-import dao.impl.UserListDaoimpl;
-import domain.User;
+import dao.StListDao;
+import dao.impl.StListDaoimpI;
+import domain.st;
+import net.sf.json.JSONArray;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.springframework.beans.factory.support.ManagedList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,26 +16,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-/*
- * 用户注册
+/**
+ * 添加食堂
  */
 
-@WebServlet("/registerServlet")
-public class registerServlet  extends HttpServlet {
+@WebServlet("/AStGlAddServlet")
+public class AStGlAddServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("UTF-8");
 
-        int zhuangtai = 0;
         boolean mutipartContent = ServletFileUpload.isMultipartContent(request);
 
         if (!mutipartContent){
 
-            request.setAttribute("errMsg","请选择头像");
-            request.getRequestDispatcher("register.jsp").forward(request,response);
+            response.getWriter().print("系统错误，添加失败");
             throw new RuntimeException("不是上传的类型");
 
         }
@@ -44,11 +42,15 @@ public class registerServlet  extends HttpServlet {
 
         DiskFileItemFactory factory = new DiskFileItemFactory();
 
+
         ServletFileUpload upload = new ServletFileUpload(factory);
+
 
         upload.setHeaderEncoding("utf-8");
 
-        List<String> userinforms = new ManagedList<>();
+        st st = new st();
+
+        List<String> pictures = new ArrayList<>();
 
         try {
             List<FileItem> items = upload.parseRequest(request);
@@ -58,27 +60,17 @@ public class registerServlet  extends HttpServlet {
                 if (item.isFormField()) {
 
                     String name = item.getFieldName();
-                    System.out.println(name);
+                    String string = item.getString("utf-8");
+                    if (name.equals("name")){
 
-                    if (name.equals("username")){
-                        String isusername = item.getString("utf-8");
-
-                        UserListDao dao = new UserListDaoimpl();
-                        User isuser= dao.findisuser(isusername);
-
-                        if (isuser != null){
-                            zhuangtai = 1;
-                            break;
-                        }else {
-                            userinforms.add(isusername);
-                        }
-
-                    }else {
-                        String string = item.getString("utf-8");
-                        userinforms.add(string);
+                        st.setName(string);
+                    }else if (name.equals("position")){
+                        st.setPosition(string);
+                    }else if (name.equals("introduce")){
+                        st.setIntroduce(string);
+                    }else if (name.equals("yysj")){
+                        st.setYysj(string);
                     }
-
-
 
                 }else {
 
@@ -86,8 +78,8 @@ public class registerServlet  extends HttpServlet {
 
                     String filename = item.getName();
                     System.out.println("我的文件名字"+filename);
-                    if (filename.length()==0){
-                        request.setAttribute("errMsg","请选择头像");
+                    if (filename.length()==0 || filename.trim().equals("")){
+                        request.setAttribute("errMsg","请选择图像");
                         request.getRequestDispatcher("register.jsp").forward(request,response);
                         return;
                     }
@@ -97,6 +89,7 @@ public class registerServlet  extends HttpServlet {
                     String timestamp = Long.toString(System.currentTimeMillis());
 
                     String realPath =  this.getServletContext().getRealPath("/upload");
+
 
                     File file = new File(realPath);
 
@@ -109,29 +102,28 @@ public class registerServlet  extends HttpServlet {
                     String imgsrc = imgpath+timestamp +filename;
 
                     System.out.println("上传文件"+imgsrc);
-                    userinforms.add(imgsrc);
-
+                    pictures.add(imgsrc);
 
                 }
 
 
             }
-            System.out.println(zhuangtai);
 
-            if ( zhuangtai == 1){
-                request.setAttribute("errMsg","已有此用户名");
-                request.getRequestDispatcher("register.jsp").forward(request,response);
-            }else {
-                System.out.println("插入成功");
-                System.out.println("插入用户名"+userinforms);
-                UserListDao dao = new UserListDaoimpl();
 
-                dao.addregisteruser(userinforms);
+            st.setPictures(JSONArray.fromObject(pictures).toString());
+            st.setCreatetime();
+            st.setLooknumber(1);
 
-                response.getWriter().print("注册成功");
+            StListDao dao = new StListDaoimpI();
 
-                response.sendRedirect("login.jsp");
-            }
+            dao.addst(st);
+
+            response.getWriter().print("添加食堂成功");
+
+            response.sendRedirect("AStGlServlet");
+
+
+
 
         } catch (FileUploadException e) {
             e.printStackTrace();
@@ -140,10 +132,14 @@ public class registerServlet  extends HttpServlet {
         }
 
 
+
+
+
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doPost(request,response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doGet(request,response);
+
     }
 }

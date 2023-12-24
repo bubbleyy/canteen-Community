@@ -28,4 +28,6 @@ public interface UserListDao {
 
     List<inform> findggsearch(String name);
 
+    List<inform> findstgg(String stid);
+
 }

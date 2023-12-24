@@ -2,13 +2,21 @@ package domain;
 
 import java.sql.Timestamp;
 
-public class community {
+public class stts {
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getSt_id() {
+        return st_id;
+    }
+
+    public void setSt_id(int st_id) {
+        this.st_id = st_id;
     }
 
     public String getUser_username() {
@@ -19,12 +27,12 @@ public class community {
         this.user_username = user_username;
     }
 
-    public String getTitle() {
-        return title;
+    public String getMaintext() {
+        return maintext;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setMaintext(String maintext) {
+        this.maintext = maintext;
     }
 
     public String getPictures() {
@@ -35,20 +43,12 @@ public class community {
         this.pictures = pictures;
     }
 
-    public String getMaintext() {
-        return maintext;
+    public String getStatus() {
+        return status;
     }
 
-    public void setMaintext(String maintext) {
-        this.maintext = maintext;
-    }
-
-    public int getLooknumber() {
-        return looknumber;
-    }
-
-    public void setLooknumber(int looknumber) {
-        this.looknumber = looknumber;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Timestamp getCreatetime() {
@@ -61,23 +61,22 @@ public class community {
 
     @Override
     public String toString() {
-        return "community{" +
+        return "stts{" +
                 "id=" + id +
+                ", st_id=" + st_id +
                 ", user_username='" + user_username + '\'' +
-                ", title='" + title + '\'' +
-                ", pictures='" + pictures + '\'' +
                 ", maintext='" + maintext + '\'' +
-                ", looknumber=" + looknumber +
+                ", pictures='" + pictures + '\'' +
+                ", status='" + status + '\'' +
                 ", createtime=" + createtime +
                 '}';
     }
 
     private int id;
+    private int st_id;
     private String user_username;
-    private  String title;
-
-    private String pictures;
     private String maintext;
-    private int looknumber;
+    private String pictures;
+    private String status;
     private Timestamp createtime;
 }

@@ -71,8 +71,8 @@ public class inform {
         return createtime;
     }
 
-    public void setCreatetime(Timestamp createtime) {
-        this.createtime = createtime;
+    public void setCreatetime() {
+        this.createtime = new Timestamp(System.currentTimeMillis());
     }
 
     @Override

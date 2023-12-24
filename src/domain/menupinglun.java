@@ -2,13 +2,21 @@ package domain;
 
 import java.sql.Timestamp;
 
-public class community {
+public class menupinglun {
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getMenu_id() {
+        return menu_id;
+    }
+
+    public void setMenu_id(int menu_id) {
+        this.menu_id = menu_id;
     }
 
     public String getUser_username() {
@@ -19,12 +27,12 @@ public class community {
         this.user_username = user_username;
     }
 
-    public String getTitle() {
-        return title;
+    public String getMaintext() {
+        return maintext;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setMaintext(String maintext) {
+        this.maintext = maintext;
     }
 
     public String getPictures() {
@@ -35,20 +43,12 @@ public class community {
         this.pictures = pictures;
     }
 
-    public String getMaintext() {
-        return maintext;
+    public String getPf() {
+        return pf;
     }
 
-    public void setMaintext(String maintext) {
-        this.maintext = maintext;
-    }
-
-    public int getLooknumber() {
-        return looknumber;
-    }
-
-    public void setLooknumber(int looknumber) {
-        this.looknumber = looknumber;
+    public void setPf(String pf) {
+        this.pf = pf;
     }
 
     public Timestamp getCreatetime() {
@@ -61,23 +61,24 @@ public class community {
 
     @Override
     public String toString() {
-        return "community{" +
+        return "menupinglun{" +
                 "id=" + id +
+                ", menu_id=" + menu_id +
                 ", user_username='" + user_username + '\'' +
-                ", title='" + title + '\'' +
-                ", pictures='" + pictures + '\'' +
                 ", maintext='" + maintext + '\'' +
-                ", looknumber=" + looknumber +
+                ", pictures='" + pictures + '\'' +
+                ", pf='" + pf + '\'' +
                 ", createtime=" + createtime +
                 '}';
     }
 
     private int id;
+    private int menu_id;
     private String user_username;
-    private  String title;
+    private  String maintext;
 
     private String pictures;
-    private String maintext;
-    private int looknumber;
+    private String pf;
+
     private Timestamp createtime;
 }

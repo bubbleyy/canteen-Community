@@ -3,11 +3,13 @@ package web;
 
 import dao.UserListDao;
 import dao.impl.UserListDaoimpl;
+import domain.User;
 import domain.admin;
 import domain.login.loginadmin;
 import domain.login.loginstgly;
 import domain.login.loginuser;
 import domain.stgly;
+import netscape.javascript.JSObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /*
  * 登录操作
@@ -34,12 +37,11 @@ public class LoginServlet<User> extends HttpServlet {
         System.out.println("我的密码"+password);
         System.out.println("登录状态"+logintype);
 
-//                调用Userdao的login方法
         UserListDao dao = new UserListDaoimpl();
 
         if (logintype.equals("师生用户")){
 
-           domain.User user  =  dao.findssyh(username,password);
+            domain.User user  =  dao.findssyh(username,password);
 
             System.out.println("查询结果"+user);
             if (user == null){
@@ -115,16 +117,16 @@ public class LoginServlet<User> extends HttpServlet {
 
             }else {
 
-                    System.out.println("登录成功");
-                    loginadmin loginuser = new loginadmin();
-                    loginuser.setUsername(user.getUsername()) ;
-                    loginuser.setFaceimg(user.getFaceimg());
-                    loginuser.setLogintype(logintype);
+                System.out.println("登录成功");
+                loginadmin loginuser = new loginadmin();
+                loginuser.setUsername(user.getUsername()) ;
+                loginuser.setFaceimg(user.getFaceimg());
+                loginuser.setLogintype(logintype);
 
-                    request.getSession().setAttribute("loginuser",loginuser);
+                request.getSession().setAttribute("loginuser",loginuser);
 
                 request.getSession().setAttribute("logintype",logintype);
-                    response.sendRedirect("AIndexServlet");
+                response.sendRedirect("AIndexServlet");
 
 
 
