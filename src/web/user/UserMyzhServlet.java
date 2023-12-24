@@ -3,7 +3,11 @@ package web.user;
 
 import dao.UserListDao;
 import dao.impl.UserListDaoimpl;
+import domain.admin;
+import domain.login.loginadmin;
+import domain.login.loginstgly;
 import domain.login.loginuser;
+import domain.stgly;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,13 +16,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/*
- * 登录操作
+/**
+ * 我的账户
  */
 
 
-@WebServlet("/UserMyAccountServlet")
-public class UserMyAccountServlet<User> extends HttpServlet {
+@WebServlet("/UserMyzhServlet")
+public class UserMyzhServlet<User> extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
@@ -32,8 +36,10 @@ public class UserMyAccountServlet<User> extends HttpServlet {
         }
         UserListDao dao = new UserListDaoimpl();
         String password = dao.findmyzhpawwsord(loginuser.getUsername());
+        User user = (User) dao.findisuser(loginuser.getUsername());
         System.out.println("账户密码"+password);
         request.setAttribute("password",password);
+        request.setAttribute("user",user);
         request.getRequestDispatcher("user/myzh.jsp").forward(request,response);
 
     }
