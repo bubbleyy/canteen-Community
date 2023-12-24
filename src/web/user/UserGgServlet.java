@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-/*
- * 登录操作
+/**
+ * 用户公告列表
  */
 
 
@@ -26,16 +26,9 @@ public class UserGgServlet<User> extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("UTF-8");
 
-        loginuser loginuser = (domain.login.loginuser) request.getSession().getAttribute("loginuser");
-
-        System.out.println("登录账户"+loginuser);
-        if (loginuser == null ){
-            response.sendRedirect("login.jsp");
-        }
-
 
         UserListDao dao = new UserListDaoimpl();
-       List<inform>  gonggaos = dao.findgg();
+        List<inform>  gonggaos = dao.findgg();
         request.setAttribute("gonggaos",gonggaos);
         request.getRequestDispatcher("user/gg.jsp").forward(request,response);
 
