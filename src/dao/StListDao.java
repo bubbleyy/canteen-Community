@@ -79,4 +79,10 @@ public interface StListDao {
     void deletestpinglun(String id);
 
     void updatestpinglun(stpinglun stpinglun);
+
+    void deletestinformfromst(String id);
+
+    void deletestpinglunfromst(String id);
+
+    void deletesttsfromst(String id);
 }

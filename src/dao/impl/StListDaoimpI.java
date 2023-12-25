@@ -363,5 +363,26 @@ public class StListDaoimpI implements StListDao {
 
     }
 
+    @Override
+    public void deletestinformfromst(String id) {
+        String sql = "delete  from inform where st_id = ?";
+
+        template.update(sql,Integer.parseInt(id));
+    }
+
+    @Override
+    public void deletestpinglunfromst(String id) {
+        String sql = "delete  from stpinglun where st_id = ?";
+
+        template.update(sql,Integer.parseInt(id));
+    }
+
+    @Override
+    public void deletesttsfromst(String id) {
+        String sql = "delete  from stts where st_id = ?";
+
+        template.update(sql,Integer.parseInt(id));
+    }
+
 
 }

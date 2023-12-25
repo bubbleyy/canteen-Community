@@ -1,6 +1,8 @@
 package web.admin;
 
+import dao.MenuListDao;
 import dao.StListDao;
+import dao.impl.MenuListDaoimpI;
 import dao.impl.StListDaoimpI;
 import domain.stgly;
 
@@ -37,7 +39,21 @@ public class AStGlDeleteServlet extends HttpServlet {
             }
         }
 
+//        还要删除菜品信息
+        MenuListDao dao1 = new MenuListDaoimpI();
+        dao1.deletestmenufromst(id);
 
+
+//        食堂公告
+        StListDao dao2 = new StListDaoimpI();
+
+        dao2.deletestinformfromst(id);
+
+
+//        食堂评论评分（点赞、回复）、投诉
+
+        dao2.deletestpinglunfromst(id);
+        dao2.deletesttsfromst(id);
        response.sendRedirect("AStGlServlet");
     }
 

@@ -48,4 +48,6 @@ public interface MenuListDao {
     void updatemenupinglun(menupinglun menupinglun);
 
     void deletemenupinglun(String id);
+
+    void deletestmenufromst(String id);
 }

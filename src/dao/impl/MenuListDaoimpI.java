@@ -198,5 +198,12 @@ public class MenuListDaoimpI implements MenuListDao {
         template.update(sql,Integer.parseInt(id));
     }
 
+    @Override
+    public void deletestmenufromst(String id) {
+        String sql = "delete  from menu where st_id = ?";
+
+        template.update(sql,Integer.parseInt(id));
+    }
+
 
 }

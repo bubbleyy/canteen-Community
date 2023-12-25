@@ -170,7 +170,24 @@
         });
       }
     });
-    
+
+    //时钟定时器
+    setInterval(function () {
+      let dateStr = "";
+      let date = new Date();
+
+      dateStr += date.getFullYear() + "年";
+      dateStr += ((date.getMonth()+1)<10?"0"+(date.getMonth()+1):(date.getMonth()+1))+"月";
+      dateStr += (date.getDate()<10?"0"+date.getDate():date.getDate())+"日";
+      dateStr += (date.getHours()<10?"0"+date.getHours():date.getHours())+"时";
+      dateStr += (date.getMinutes()<10?"0"+date.getMinutes():date.getMinutes())+"分";
+      dateStr += (date.getSeconds()<10?"0"+date.getSeconds():date.getSeconds())+"秒";
+      let xq = ["日","一","二","三","四","五","六"];
+      dateStr += "    星期"+xq[date.getDay()];
+
+      $("#times").text(dateStr);
+    },1000);
+
     //触发事件
     var active = {
       tabAdd: function (url, id, title) {
