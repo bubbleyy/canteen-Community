@@ -10,7 +10,6 @@
     <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>公告</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
@@ -21,7 +20,6 @@
     <link href="${pageContext.request.contextPath}/css/assets/css/vendor/aos.css" rel="stylesheet"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
-
 
     <style type="text/css">
         body {
@@ -45,7 +43,6 @@
                     <a class="nav-link" href="IndexServlet">首页</a>
                 </li>
             </ul>
-
         </div>
 
     </div>
@@ -71,24 +68,24 @@
 <main class="container">
 
     <h3 class="h5 mb-4 font-weight-bold">公告栏</h3>
-       <c:choose>
-            <c:when test="${gonggaos.size() == 0}">没有公告喔~</c:when>
-            <c:otherwise>
-                <c:forEach items="${gonggaos}" var="post">
+    <c:choose>
+        <c:when test="${gonggaos.size() == 0}">没有公告喔~</c:when>
+        <c:otherwise>
+            <c:forEach items="${gonggaos}" var="post">
                 <section style="margin: 5px 0;" data-aos="fade-up" id="example-carousel423">
                     <div style="margin: 20px 0;background-color: white;border-radius: 10px;box-shadow: 0 0 10px whitesmoke;padding: 20px;display: flex;flex-direction: row;align-items: center;width: 100%;flex-wrap: wrap">
 
-                    <div style="display: flex;flex-direction: row;align-items: center;justify-content: space-between;width: 100%;margin: 10px">
-                        <div style="width: 300px"><a href="UserGgDetailServlet?id=${post.id}" style="color:#333333;">${post.title}</a></div>
-                        <img src="../imgs/icon/right.png" style="width: 20px;height: 20px;">
-                    </div>
+                        <div style="display: flex;flex-direction: row;align-items: center;justify-content: space-between;width: 100%;margin: 10px">
+                            <div style="width: 300px"><a href="UserGgdetailServlet?id=${post.id}" style="color:#333333;">${post.title}</a></div>
+                            <img src="../imgs/icon/right.png" style="width: 20px;height: 20px;">
+                        </div>
                         <hr />
                     </div>
                 </section>
 
-                </c:forEach>
-            </c:otherwise>
-        </c:choose>
+            </c:forEach>
+        </c:otherwise>
+    </c:choose>
 
 </main>
 
@@ -98,7 +95,6 @@
 <script src="${pageContext.request.contextPath}/css/assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/css/assets/js/vendor/share.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/css/assets/js/functions.js" type="text/javascript"></script>
-
 <script src="${pageContext.request.contextPath}/css/assets/js/vendor/aos.js" type="text/javascript"></script>
 
 <noscript>
@@ -150,7 +146,6 @@
     })
 </script>
 
-<%--提交搜索表单--%>
 <script>
     $(document).ready(function () {
 
@@ -161,7 +156,7 @@
             );
         }
     )
-</script>
 
+</script>
 </body>
 </html>
