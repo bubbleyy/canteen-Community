@@ -9,7 +9,9 @@
   <title>首页</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
   <link href="${pageContext.request.contextPath}/css/assets/css/main.css" rel="stylesheet"/>
+
   <link href="${pageContext.request.contextPath}/css/assets/css/vendor/aos.css" rel="stylesheet"/>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
@@ -89,6 +91,7 @@
   </div>
 </nav>
 
+
 <div style="margin: 0 40px;">
   <section style="margin-top: 40px" >
     <div style="width: 100%;height: 450px;border-radius: 10px;position: relative;">
@@ -130,7 +133,7 @@
 
                   </c:when>
                   <c:otherwise>
-                    <img src="../../imgs/background.jpg"  style="width: 100px;height: 80px;border-radius: 10px;">
+                    <img src="${pageContext.request.contextPath}/imgs/background.jpg"  style="width: 100px;height: 80px;border-radius: 10px;">
 
                   </c:otherwise>
                 </c:choose>
