@@ -44,7 +44,7 @@ public class FilterLogin implements Filter {
             return;
         }
 
-        if (  url.contains("/IndexServlet") ||  url.contains("/loginServlet") || url.contains("/register.jsp") || url.contains("/registerServerlet")  || url.contains("/index.jsp")  ){
+        if (url.contains("/IndexServlet") ||  url.contains("/loginServlet") || url.contains("/register.jsp") || url.contains("/registerServerlet")  || url.contains("/index.jsp")  ){
             filterChain.doFilter(request,response);
             return;
         }
