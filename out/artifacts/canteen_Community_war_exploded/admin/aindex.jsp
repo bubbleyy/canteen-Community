@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -17,9 +19,9 @@
       <img src="../imgs/system.png" style="width: 30px;height: 30px;margin-right: 5px">
       系统后台主页
     </div>
-    <!-- 头部区域 -->
     <ul class="layui-nav layui-layout-left">
       <li class="layui-nav-item layui-hide-xs"><span id="times"></span></li>
+
     </ul>
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item layui-hide layui-show-md-inline-block">
@@ -29,7 +31,7 @@
         </a>
         <dl class="layui-nav-child">
 
-          <dd style="text-align: center;">    <form class="tuichu" action="outServlet" method="post">
+          <dd style="text-align: center;">    <form class="tuichu" action="${pageContext.request.contextPath}/outServlet" method="post">
             <input type="submit" value="退出登录">
           </form></dd>
         </dl>
@@ -44,7 +46,6 @@
 
   <div class="layui-side layui-bg-black">
     <div class="layui-side-scroll">
-      <!-- 左侧导航区域 -->
       <ul class="layui-nav layui-nav-tree" lay-filter="test">
         <li class="layui-nav-item layui-nav-itemed">
           <a href="${pageContext.request.contextPath}/IndexServlet">首页</a>
@@ -57,13 +58,23 @@
           <a href="javascript:;"><img src="../imgs/icon/shezhi.png" style="height: 20px;width:20px;margin-right: 5px;">社区管理</a>
           <dl class="layui-nav-child">
             <dd><a href="javascript:;"
-                   data-url="${pageContext.request.contextPath}/#"
+                   data-url="${pageContext.request.contextPath}/AcommunityxxServlet"
                    data-id="sqxx"
                    data-title="社区信息"
                    class="site-demo-active"
                    data-type="tabAdd"
             >社区信息</a></dd>
           </dl>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;"
+                   data-url="${pageContext.request.contextPath}/AcommunitypinglunServlet"
+                   data-id="sqpl"
+                   data-title="社区评论"
+                   class="site-demo-active"
+                   data-type="tabAdd"
+            >社区评论</a></dd>
+          </dl>
+
         </li>
       </ul>
 
@@ -73,46 +84,35 @@
 
           <dl class="layui-nav-child">
 
+
             <dd><a href="javascript:;"
-                   data-url="${pageContext.request.contextPath}/#"
+                   data-url="${pageContext.request.contextPath}/AstplServlet"
                    data-id="stpl"
                    data-title="食堂评论"
                    class="site-demo-active"
                    data-type="tabAdd"
             >食堂评论</a></dd>
-
             <dd><a href="javascript:;"
-                   data-url="${pageContext.request.contextPath}/#"
+                   data-url="${pageContext.request.contextPath}/AmenuplServlet"
                    data-id="cppl"
                    data-title="菜品评论"
                    class="site-demo-active"
                    data-type="tabAdd"
             >菜品评论</a></dd>
-
           </dl>
         </li>
       </ul>
-
       <ul class="layui-nav layui-nav-tree" lay-filter="test">
         <li class="layui-nav-item layui-nav-itemed">
           <a href="javascript:;"><img src="../imgs/icon/shezhi.png" style="height: 20px;width:20px;margin-right: 5px;">食堂与人员管理</a>
           <dl class="layui-nav-child">
             <dd><a href="javascript:;"
-                   data-url="#"
+                   data-url="${pageContext.request.contextPath}/AStGlServlet"
                    data-id="stzh"
-                   data-title="食堂账户"
+                   data-title="食堂管理"
                    class="site-demo-active"
                    data-type="tabAdd"
-            >食堂账户</a></dd>
-          </dl>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;"
-                   data-url="#"
-                   data-id="stgly"
-                   data-title="食堂管理员"
-                   class="site-demo-active"
-                   data-type="tabAdd"
-            >食堂管理员</a></dd>
+            >食堂管理</a></dd>
           </dl>
         </li>
       </ul>
@@ -120,6 +120,7 @@
   </div>
 
   <div class="layui-body">
+    <!-- 内容主体区域 -->
     <div style="padding: 15px;">
       <div class="layui-row layui-col-space15" style="padding: 0px;height: 555px !important;">
         <div style="width: 99%" >
@@ -141,12 +142,9 @@
       </div>
     </div>
   </div>
-
-
 </div>
 <script src="../layui/layui.js"></script>
 <script>
-
   layui.use(['element', 'layer', 'util'], function(){
     var element = layui.element
             ,layer = layui.layer
@@ -164,7 +162,7 @@
           type: 1
           ,content: '<div style="padding: 15px;">处理右侧面板的操作</div>'
           ,area: ['260px', '100%']
-          ,offset: 'rt'
+          ,offset: 'rt' //右上角
           ,anim: 5
           ,shadeClose: true
         });
@@ -175,7 +173,7 @@
     setInterval(function () {
       let dateStr = "";
       let date = new Date();
-
+      //单独的获取时间
       dateStr += date.getFullYear() + "年";
       dateStr += ((date.getMonth()+1)<10?"0"+(date.getMonth()+1):(date.getMonth()+1))+"月";
       dateStr += (date.getDate()<10?"0"+date.getDate():date.getDate())+"日";
@@ -202,38 +200,45 @@
 
       },
       tabChange: function (id) {
-        element.tabChange('demo', id); //根据传入的id传入到指定的tab项
+        element.tabChange('demo', id);
       },
       tabDelete: function (id) {
-        element.tabDelete("demo", id);//删除
+        element.tabDelete("demo", id);
       },
       tabDeleteAll: function (ids) {//删除所有
         $.each(ids, function (i, item) {
-          element.tabDelete("demo", item);
+          element.tabDelete("demo", item); //ids是一个数组，里面存放了多个id，调用tabDelete方法分别删除
         })
       },
     };
 
+    //当点击有site-demo-active属性的标签时，即左侧菜单栏中内容 ，触发点击事件
     $('.site-demo-active').on(
             'click',
             function () {
               var dataid = $(this);
 
+              //这时会判断右侧.layui-tab-title属性下的有lay-id属性的li的数目，即已经打开的tab项数目
               if ($(".layui-tab-title li[lay-id]").length <= 0) {
+                //如果比零小，则直接打开新的tab项
                 active
                         .tabAdd(dataid.attr("data-url"), dataid
                                 .attr("data-id"), dataid
                                 .attr("data-title"));
               } else {
-                var isData = false; //初始化一个标志，为false说明未打开该tab项 为true则说明已有
+                //否则判断该tab项是否以及存在
+
+                var isData = false;
                 $.each($(".layui-tab-title li[lay-id]"),
                         function () {
+                          //如果点击左侧菜单栏所传入的id 在右侧tab项中的lay-id属性可以找到，则说明该tab项已经打开
                           if ($(this).attr("lay-id") == dataid
                                   .attr("data-id")) {
                             isData = true;
                           }
                         })
                 if (isData == false) {
+                  //标志为false 新增一个tab项
                   active.tabAdd(dataid.attr("data-url"), dataid
                           .attr("data-id"), dataid
                           .attr("data-title"));

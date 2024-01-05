@@ -39,7 +39,7 @@
         <div class="navbar-collapse collapse" id="navbarColor02" style="">
             <ul class="navbar-nav mr-auto d-flex align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="UserGgServlet">返回</a>
+                    <a class="nav-link" href="UserGgServlet">全部公告列表</a>
                 </li>
             </ul>
 
@@ -53,13 +53,26 @@
 <main class="container">
 
     <section  data-aos="fade-up" id="example-carousel135">
-    <div style="margin: 10px 0;background-color: white;border-radius: 10px;box-shadow: 0 0 10px whitesmoke;display: flex;padding: 30px;flex-wrap: wrap">
-        <div style="width: 100%"><h3 style="font-weight: bold">${gonggao.title}</h3></div>
-        <div style="width: 100%;display: flex;flex-direction: row"><div style="font-size: 14px;color: #8a8a8a;margin: 20px 10px;">${gonggao.type}</div><div style="font-size: 14px;color: #8a8a8a;margin: 20px 10px">${gonggao.createtime}</div></div>
-       <div style="width: 100%;margin: 20px 0 ;">${gonggao.maintext}</div>
-        <div style="width: 100%;text-align: right;font-size: 14px;color: #bfbfbf;margin-top: 10px;">浏览量：${gonggao.looknumber}</div>
-        <div style="width: 100%;text-align: right;font-size: 14px;color: #bfbfbf;margin-top: 10px;">${gonggao.fromwho}</div>
-    </div>
+        <div style="margin: 10px 0;background-color: white;border-radius: 10px;box-shadow: 0 0 10px whitesmoke;display: flex;padding: 30px;flex-wrap: wrap">
+            <div style="width: 100%"><h3 style="font-weight: bold">${gonggao.title}</h3></div>
+            <div style="width: 100%;display: flex;flex-direction: row"><div style="font-size: 14px;color: #8a8a8a;margin: 20px 10px;">${gonggao.type}</div><div style="font-size: 14px;color: #8a8a8a;margin: 20px 10px">${gonggao.createtime}</div></div>
+
+            <c:choose>
+                <c:when test="${ !gonggao.pictures.isEmpty()}">
+                    <c:forEach items="${gonggao.pictures}" var="picture" varStatus="a" >
+                        <img src="${pageContext.request.contextPath}/${picture}" style="width: 80px;height: 80px;">
+                    </c:forEach>
+
+                </c:when>
+                <c:otherwise>
+                    没有图片噢~
+                </c:otherwise>
+            </c:choose>
+
+            <div style="width: 100%;margin: 20px 0 ;">${gonggao.maintext}</div>
+            <div style="width: 100%;text-align: right;font-size: 14px;color: #bfbfbf;margin-top: 10px;">浏览量：${gonggao.looknumber}</div>
+            <div style="width: 100%;text-align: right;font-size: 14px;color: #bfbfbf;margin-top: 10px;">${gonggao.fromwho}</div>
+        </div>
     </section>
 
 </main>
@@ -70,7 +83,6 @@
 <script src="${pageContext.request.contextPath}/css/assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/css/assets/js/vendor/share.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/css/assets/js/functions.js" type="text/javascript"></script>
-
 <script src="${pageContext.request.contextPath}/css/assets/js/vendor/aos.js" type="text/javascript"></script>
 
 <noscript>
