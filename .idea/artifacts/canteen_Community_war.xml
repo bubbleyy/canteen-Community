@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="canteen-Community:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/canteen_Community_war</output-path>
+    <root id="archive" name="canteen-Community_war.war">
+      <element id="artifact" artifact-name="canteen-Community:war exploded" />
+    </root>
+  </artifact>
+</component>

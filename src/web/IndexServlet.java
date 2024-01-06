@@ -39,7 +39,7 @@ public class IndexServlet extends HttpServlet {
         List<st> sts = dao.findallst();
         List<List<String>> stpictures = new ArrayList<>();
 
-        for (var i =0;i<sts.size() ;i++ ){
+        for (int i =0;i<sts.size() ;i++ ){
             if (sts.get(i).getPictures().length() != 0){
                 List<String> itempicture =   JSONArray.fromObject(sts.get(i).getPictures());
                 stpictures.add(itempicture);
@@ -61,14 +61,14 @@ public class IndexServlet extends HttpServlet {
 
         List<communitylist> communitylist  = new ArrayList<>();
 
-        for (var i =0;i<communities.size();i++){
+        for (int i =0;i<communities.size();i++){
 
             User user = dao3.findisuser(communities.get(i).getUser_username());
 
             List<communitypinglun> communitypingluns = dao2.findcommunitypinglun(communities.get(i).getId());
 
             List<List<String>> communityitempictures = new ArrayList<>();
-            for (var j = 0 ;j<communitypingluns.size();j++){
+            for (int j = 0 ;j<communitypingluns.size();j++){
                 List<String> itemlist = JSONArray.fromObject(communitypingluns.get(j).getPictures());
                 communityitempictures.add(itemlist);
             }

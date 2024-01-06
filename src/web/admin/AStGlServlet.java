@@ -32,7 +32,7 @@ public class AStGlServlet extends HttpServlet {
 
         List<List<String>> pictures = new ArrayList<>();
 
-        for (var i =0;i<sts.size() ;i++ ){
+        for (int i =0;i<sts.size() ;i++ ){
             if (sts.get(i).getPictures().length() != 0){
                 List<String> itempicture =   JSONArray.fromObject(sts.get(i).getPictures());
                 pictures.add(itempicture);
@@ -61,7 +61,7 @@ public class AStGlServlet extends HttpServlet {
 
         List<List<String>> pictures = new ArrayList<>();
 
-        for (var i =0;i<sts.size() ;i++ ){
+        for (int i =0;i<sts.size() ;i++ ){
             if (sts.get(i).getPictures().length() != 0){
                 List<String> itempicture =   JSONArray.fromObject(sts.get(i).getPictures());
                 pictures.add(itempicture);

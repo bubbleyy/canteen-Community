@@ -37,7 +37,7 @@ public class SInformServlet<User> extends HttpServlet {
 
                List<List<String>> gonggaopicture = new ArrayList<>();
 
-        for (var i =0;i<gonggaos.size() ;i++ ){
+        for (int i =0;i<gonggaos.size() ;i++ ){
             if (gonggaos.get(i).getPictures() !=null ){
                 List<String> itempicture =   JSONArray.fromObject(gonggaos.get(i).getPictures());
                 gonggaopicture.add(itempicture);
@@ -64,7 +64,7 @@ public class SInformServlet<User> extends HttpServlet {
         UserListDao dao = new UserListDaoimpl();
         List<inform>  gonggaos = dao.findggsearch(name);
         List<List<String>> gonggaopicture = new ArrayList<>();
-        for (var i =0;i<gonggaos.size() ;i++ ){
+        for (int i =0;i<gonggaos.size() ;i++ ){
             if (gonggaos.get(i).getPictures() !=null ){
                 List<String> itempicture =   JSONArray.fromObject(gonggaos.get(i).getPictures());
                 gonggaopicture.add(itempicture);

@@ -39,7 +39,7 @@ public class SsttsServlet<User> extends HttpServlet {
                List<List<String>> sttspictures = new ArrayList<>();
                List<String> statuslist = new ArrayList<>();
 
-        for (var i =0;i<sttss.size() ;i++ ){
+        for (int i =0;i<sttss.size() ;i++ ){
             if (sttss.get(i).getPictures() !=null ){
                 List<String> itempicture =   JSONArray.fromObject(sttss.get(i).getPictures());
                 sttspictures.add(itempicture);

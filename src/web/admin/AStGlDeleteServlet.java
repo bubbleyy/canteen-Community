@@ -34,7 +34,7 @@ public class AStGlDeleteServlet extends HttpServlet {
         List<stgly>  stglies = dao.findstrygl(id);
 
         if (stglies.size() >0){
-            for (var i =0;i<stglies.size();i++){
+            for (int i =0;i<stglies.size();i++){
                 dao.deletestgly(stglies.get(i).getUsername());
             }
         }

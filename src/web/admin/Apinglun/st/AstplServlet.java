@@ -35,7 +35,7 @@ public class AstplServlet<User> extends HttpServlet {
 
                List<List<String>> stplpictures = new ArrayList<>();
 
-        for (var i =0;i<stpingluns.size() ;i++ ){
+        for (int i =0;i<stpingluns.size() ;i++ ){
             if (stpingluns.get(i).getPritures() !=null ){
                 List<String> itempicture =   JSONArray.fromObject(stpingluns.get(i).getPritures());
                 stplpictures.add(itempicture);

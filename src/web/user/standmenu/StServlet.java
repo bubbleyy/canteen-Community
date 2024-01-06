@@ -28,7 +28,7 @@ public class StServlet extends HttpServlet {
         List<st> sts = dao.findallst();
         List<List<String>> stpictures = new ArrayList<>();
 
-        for (var i =0;i<sts.size() ;i++ ){
+        for (int i =0;i<sts.size() ;i++ ){
             if (sts.get(i).getPictures().length() != 0){
                 List<String> itempicture =   JSONArray.fromObject(sts.get(i).getPictures());
                 stpictures.add(itempicture);

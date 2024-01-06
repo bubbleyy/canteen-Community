@@ -58,7 +58,7 @@ public class MenuDetailServlet<User> extends HttpServlet {
         List<menupinglun> menupingluns = dao.findmenupinglun(id);
 
         UserListDao dao2 = new UserListDaoimpl();
-        for (var i=0;i<menupingluns.size();i++){
+        for (int i=0;i<menupingluns.size();i++){
             domain.User user = dao2.findisuser(menupingluns.get(i).getUser_username());
             usermenupinglun usermenupinglun = new usermenupinglun();
             usermenupinglun.setUser (user);
@@ -68,7 +68,7 @@ public class MenuDetailServlet<User> extends HttpServlet {
 
 
 //        查找用户是否已评论过一次
-        var menuuserpinglun  = false;
+        boolean menuuserpinglun  = false;
         if (request.getSession().getAttribute("logintype").equals("师生用户")){
 
             loginuser loginuser = (domain.login.loginuser) request.getSession().getAttribute("loginuser");

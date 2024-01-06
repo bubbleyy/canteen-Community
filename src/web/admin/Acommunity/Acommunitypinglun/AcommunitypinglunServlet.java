@@ -30,7 +30,7 @@ public class AcommunitypinglunServlet extends HttpServlet {
 
         List<List<String>> pictures = new ArrayList<>();
 
-        for (var i =0;i<communitypingluns.size() ;i++ ){
+        for (int i =0;i<communitypingluns.size() ;i++ ){
             if (communitypingluns.get(i).getPictures().length() != 0){
                 List<String> itempicture =   JSONArray.fromObject(communitypingluns.get(i).getPictures());
                 pictures.add(itempicture);

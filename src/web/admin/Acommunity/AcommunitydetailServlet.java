@@ -46,7 +46,7 @@ public class AcommunitydetailServlet extends HttpServlet {
         List<communitypinglun> communitypingluns = dao.findcommunitypinglun(community.getId());
 
         List<List<String>> communityitempictures = new ArrayList<>();
-        for (var j = 0 ;j<communitypingluns.size();j++){
+        for (int j = 0 ;j<communitypingluns.size();j++){
             List<String> itemlist = JSONArray.fromObject(communitypingluns.get(j).getPictures());
             communityitempictures.add(itemlist);
         }

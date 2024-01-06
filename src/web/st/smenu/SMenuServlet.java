@@ -37,7 +37,7 @@ public class SMenuServlet<User> extends HttpServlet {
 
                List<List<String>> menupictures = new ArrayList<>();
 
-        for (var i =0;i<menus.size() ;i++ ){
+        for (int i =0;i<menus.size() ;i++ ){
             if (menus.get(i).getPictures() !=null ){
                 List<String> itempicture =   JSONArray.fromObject(menus.get(i).getPictures());
                 menupictures.add(itempicture);
@@ -65,7 +65,7 @@ public class SMenuServlet<User> extends HttpServlet {
         MenuListDao dao = new MenuListDaoimpI();
         List<menu>  menus = dao.findstpclike(loginstgly.getSt_id(),name);
         List<List<String>> menupictures = new ArrayList<>();
-        for (var i =0;i<menus.size() ;i++ ){
+        for (int i =0;i<menus.size() ;i++ ){
             if (menus.get(i).getPictures() !=null ){
                 List<String> itempicture =   JSONArray.fromObject(menus.get(i).getPictures());
                 menupictures.add(itempicture);

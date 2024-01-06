@@ -44,7 +44,7 @@ public class SMainServlet extends HttpServlet {
 
         List<List<String>> stcppictures = new ArrayList<>();
 
-        for (var i =0;i<menus.size() ;i++ ){
+        for (int i =0;i<menus.size() ;i++ ){
             if (menus.get(i).getPictures().length() != 0){
                 List<String> itempicture =   JSONArray.fromObject(menus.get(i).getPictures());
                 stcppictures.add(itempicture);
@@ -69,7 +69,7 @@ public class SMainServlet extends HttpServlet {
 
         List<stpinglun> stpingluns = dao.findstpinglun(stid);
 
-        for (var i=0;i<stpingluns.size();i++){
+        for (int i=0;i<stpingluns.size();i++){
             User user = dao2.findisuser(stpingluns.get(i).getUser_username());
             userpinglun userpinglun = new userpinglun();
             userpinglun.setUser(user);
@@ -79,7 +79,7 @@ public class SMainServlet extends HttpServlet {
 
 
 //        查找用户是否已评论过一次
-        var stuserpinglun  = false;
+        boolean stuserpinglun  = false;
         if (request.getSession().getAttribute("logintype").equals("师生用户")){
 
             loginuser loginuser = (domain.login.loginuser) request.getSession().getAttribute("loginuser");

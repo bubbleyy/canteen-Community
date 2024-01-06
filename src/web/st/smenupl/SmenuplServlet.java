@@ -37,7 +37,7 @@ public class SmenuplServlet<User> extends HttpServlet {
 
         List<menu> menus = dao.findstallcp(loginstgly.getSt_id());
         List<menupinglun>  menupingluns = new ArrayList<>();
-        for (var i =0;i<menus.size();i++){
+        for (int i =0;i<menus.size();i++){
             List<menupinglun>  menupinglunitem = dao.findmenupinglun(String.valueOf(menus.get(i).getId()));
             menupingluns.addAll(menupinglunitem);
         }
@@ -45,7 +45,7 @@ public class SmenuplServlet<User> extends HttpServlet {
                List<List<String>> menuplpictures = new ArrayList<>();
                List<String> statuslist = new ArrayList<>();
 
-        for (var i =0;i<menupingluns.size() ;i++ ){
+        for (int i =0;i<menupingluns.size() ;i++ ){
             if (menupingluns.get(i).getPictures() !=null ){
                 List<String> itempicture =   JSONArray.fromObject(menupingluns.get(i).getPictures());
                 menuplpictures.add(itempicture);

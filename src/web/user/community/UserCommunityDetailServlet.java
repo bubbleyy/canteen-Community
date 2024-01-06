@@ -50,7 +50,7 @@ public class UserCommunityDetailServlet extends HttpServlet {
             List<communitypinglun> communitypingluns = dao.findcommunitypinglun(community.getId());
 
             List<List<String>> communityitempictures = new ArrayList<>();
-            for (var j = 0 ;j<communitypingluns.size();j++){
+            for (int j = 0 ;j<communitypingluns.size();j++){
                 List<String> itemlist = JSONArray.fromObject(communitypingluns.get(j).getPictures());
                 communityitempictures.add(itemlist);
             }
@@ -65,7 +65,7 @@ public class UserCommunityDetailServlet extends HttpServlet {
 
 
 //        获取点赞数据
-        var price = false;
+        boolean price = false;
 
         if (request.getSession().getAttribute("logintype").equals("师生用户")){
             loginuser loginuser = (domain.login.loginuser) request.getSession().getAttribute("loginuser");

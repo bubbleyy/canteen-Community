@@ -31,7 +31,7 @@ public class AcommunityxxServlet extends HttpServlet {
 
         List<List<String>> pictures = new ArrayList<>();
 
-        for (var i =0;i<communities.size() ;i++ ){
+        for (int i =0;i<communities.size() ;i++ ){
             if (communities.get(i).getPictures().length() != 0){
                 List<String> itempicture =   JSONArray.fromObject(communities.get(i).getPictures());
                 pictures.add(itempicture);

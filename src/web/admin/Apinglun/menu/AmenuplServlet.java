@@ -35,7 +35,7 @@ public class AmenuplServlet<User> extends HttpServlet {
 
                List<List<String>> menuplpictures = new ArrayList<>();
 
-        for (var i =0;i<menupingluns.size() ;i++ ){
+        for (int i =0;i<menupingluns.size() ;i++ ){
             if (menupingluns.get(i).getPictures() !=null ){
                 List<String> itempicture =   JSONArray.fromObject(menupingluns.get(i).getPictures());
                 menuplpictures.add(itempicture);
